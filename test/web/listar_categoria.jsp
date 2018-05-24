@@ -3,6 +3,11 @@
     Created on : May 23, 2018, 10:59:00 PM
     Author     : kriss
 --%>
+<%@page import="java.util.ArrayList" %> 
+<%@page import="model.CategoriaModel"  %> 
+
+<% ArrayList<CategoriaModel>lista = (ArrayList<CategoriaModel>)request.getAttribute("listaCategoria"); %>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
  <!DOCTYPE html>
@@ -64,11 +69,14 @@
 
                         <tbody>
                             
-                            
+                            <% for (CategoriaModel cat : lista) {
+                                    
+                                
+                            %>
                             <tr>
 
-                                <td></td>
-                                <td></td>
+                                <td><%out.print(cat.getNombre());%></td>
+                                <td><%out.print(cat.getDetalle());%></td>
                                 <td>
                                     <a class="btn-floating yellow darken-1 z-depth-5"><i class="material-icons">search</i></a>
                                     <a class="btn-floating green z-depth-5"><i class="material-icons">mode_edit</i></a>
@@ -77,7 +85,7 @@
 
                             </tr>
                             
-                            
+                            <%}%>
                             
                         </tbody>
                     </table>
