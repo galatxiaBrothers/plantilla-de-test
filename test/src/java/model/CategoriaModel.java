@@ -90,5 +90,21 @@ public class CategoriaModel {
        }
        
    }
+   
+   public void eliminarCategoria(int id){
+       
+       CategoriaModel catEliminar = new CategoriaModel();
+       for (CategoriaModel lista : listaCategoria) {
+           
+           if(lista.getId()==id){
+               
+               catEliminar = lista;
+               
+           }
+           
+       }
+       
+       listaCategoria.remove(catEliminar);
+   }
     
 }

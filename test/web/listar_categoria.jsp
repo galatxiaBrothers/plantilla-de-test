@@ -78,7 +78,7 @@
                                 <td>
                                     <a href="#VerDetalleCat" class="btn-floating yellow darken-1 z-depth-5 modal-trigger btnVerDetalle"><i class="material-icons">search</i></a>
                                     <a href="#modificarCat" class="btn-floating green z-depth-5 modal-trigger btnModificar"><i class="material-icons">mode_edit</i></a>
-                                    <a class="btn-floating red z-depth-5"><i class="material-icons">delete</i></a>
+                                    <a href="#EliminarCat"class="btn-floating red z-depth-5 modal-trigger btnEliminar"><i class="material-icons">delete</i></a>
                                 </td>
 
                             </tr>
@@ -174,8 +174,56 @@
 
 </div>
 <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
 </div>
+
+
+<div id="EliminarCat" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Eliminar Categoria</h4>
+        
+        
+
+        <form class="col s12" action="eliminarcategoria.do" method="POST">
+            <div class="row hide">
+                <div class="input-field col s12">
+                    <input id="etxtID" name="etxtID" type="text" class="validate">
+                    <label for="etxtID">ID Categoria</label>
+
+                </div>
+                
+            </div>
+               <div class="col s12">
+                <div class="modal-content">
+                <div class="divider"></div>
+                
+                <div class="section">
+                    <h5>Nombre Categoria</h5>
+                    <p id="peNombre"></p>
+                    
+                </div>
+                
+                 <div class="section">
+                    <h5>Detalle Categoria</h5>
+                    <p id="peDetalle"></p>
+                    
+                </div>
+            </div>
+                
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Eliminar<i class="material-icons right">send</i>
+                </button>      
+            </div>
+               </div>
+        </form>
+
+    
+
+
+<div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+</div>
+
 
 
 
@@ -209,6 +257,22 @@
             $('#txtDetalle').val(detalle);
             
             Materialize.updateTextFields();
+            
+        });
+        
+        $('.btnEliminar').click(function (){
+            
+            var nombres = $(this).parents('tr').find('td')[0].innerHTML;
+            var detalles = $(this).parents('tr').find('td')[1].innerHTML;
+            var idCategorias = $(this).parents('tr').attr('id');
+            
+            $('#etxtID').val(idCategorias);
+            $('#peNombre').text(nombres);
+            $('#peDetalle').text(detalles);
+            
+            Materialize.updateTextFields(); 
+            
+            
             
         });
         
