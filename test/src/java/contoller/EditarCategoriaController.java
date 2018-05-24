@@ -31,7 +31,7 @@ public class EditarCategoriaController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int id =Integer.parseInt(request.getParameter("txtid")); 
+        int id = Integer.parseInt(request.getParameter("txtID"));
         String nombre = request.getParameter("txtNombre");
         String detalle = request.getParameter("txtDetalle");
         

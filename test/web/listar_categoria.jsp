@@ -60,7 +60,6 @@
                     <table class="highlight centered">
                         <thead>
                             <tr>
-
                                 <th>Nombre</th>
                                 <th>Detalle</th>
                                 <th>Opciones</th>
@@ -70,15 +69,15 @@
                         <tbody>
 
                             <% for (CategoriaModel cat : lista) {
-
+                            
                             %>
-                            <tr>
-
+                            <tr id="<%out.print(cat.getId());%>">
+                              
                                 <td><%out.print(cat.getNombre());%></td>
                                 <td><%out.print(cat.getDetalle());%></td>
                                 <td>
-                                    <a data-target="modal1" class="btn-floating yellow darken-1 z-depth-5 btn modal-trigger"><i class="material-icons">search</i></a>
-                                    <a href="editarCategoria" class="btn-floating modal-trigger green z-depth-5"><i class="material-icons">mode_edit</i></a>
+                                    <a href="#VerDetalleCat" class="btn-floating yellow darken-1 z-depth-5 modal-trigger btnVerDetalle"><i class="material-icons">search</i></a>
+                                    <a href="#modificarCat" class="btn-floating green z-depth-5 modal-trigger btnModificar"><i class="material-icons">mode_edit</i></a>
                                     <a class="btn-floating red z-depth-5"><i class="material-icons">delete</i></a>
                                 </td>
 
@@ -105,10 +104,22 @@
 
         </div>
 
-        <div id="modal1" class="modal">
+        <div id="VerDetalleCat" class="modal">
             <div class="modal-content">
-                <h4>Detalle Categoria</h4>
-                <p> prueba</p>
+                <h4>Detalle Categoria </h4>
+                <div class="divider"></div>
+                
+                <div class="section">
+                    <h5>Nombre Categoria</h5>
+                    <p id="pNombre"></p>
+                    
+                </div>
+                
+                 <div class="section">
+                    <h5>Detalle Categoria</h5>
+                    <p id="pDetalle"></p>
+                    
+                </div>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
@@ -125,28 +136,30 @@
     <div class="modal-content">
         <h4>Modificar Categoria</h4>
         <div class="divider"></div>
+        
+        
 
-        <form class="col s12" action="" method="POST">
+        <form class="col s12" action="editarcategoria.do" method="POST">
             <div class="row hide">
                 <div class="input-field col s12">
-                    <input id="txtid" name="txtid" type="text" class="validate">
-                    <label for="txtid">ID Categoria</label>
+                    <input id="txtID" name="txtID" type="text" class="validate">
+                    <label for="txtID">ID Categoria</label>
 
                 </div>
 
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="txtnombre" name="txtnombre" type="text" class="validate">
-                    <label for="txtnombre">Nombre Categoria</label>
+                    <input id="txtNombre" name="txtNombre" type="text" class="validate">
+                    <label for="txtNombre">Nombre Categoria</label>
 
                 </div>
 
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="txtdetalle" name="txtdetalle" type="text" class="validate">
-                    <label for="txtdetalle">Detalle Categoria</label>
+                    <input id="txtDetalle" name="txtDetalle" type="text" class="validate">
+                    <label for="txtDetalle">Detalle Categoria</label>
 
                 </div>
             </div>
@@ -175,6 +188,31 @@
     $(document).ready(function () {
         $('.sidenav sidenav-fixed').sidenav();
         $('.modal').modal();
+        
+        $('.btnVerDetalle').click(function(){
+        var nombre = $(this).parents('tr').find('td')[0].innerHTML;   
+        var detalle = $(this).parents('tr').find('td')[1].innerHTML;   
+        
+        $('#pNombre').text(nombre);
+        $('#pDetalle').text(detalle);
+        
+        });
+        
+        $('.btnModificar').click(function (){
+            
+            var nombre = $(this).parents('tr').find('td')[0].innerHTML;
+            var detalle = $(this).parents('tr').find('td')[1].innerHTML;
+            var idCategoria = $(this).parents('tr').attr('id');
+            
+            $('#txtID').val(idCategoria);
+            $('#txtNombre').val(nombre);
+            $('#txtDetalle').val(detalle);
+            
+            Materialize.updateTextFields();
+            
+        });
+        
+        
     });
 </script>
 </body>

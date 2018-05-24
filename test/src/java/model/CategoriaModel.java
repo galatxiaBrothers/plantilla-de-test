@@ -82,7 +82,7 @@ public class CategoriaModel {
    
    public void editarCategoria(CategoriaModel categoria,int id){
        
-       for (CategoriaModel lista : listaCategoria) {
+       for(CategoriaModel lista : listaCategoria) {
            if(lista.getId()== id){
                lista.setNombre(categoria.getNombre());
                lista.setDetalle(categoria.getDetalle());
