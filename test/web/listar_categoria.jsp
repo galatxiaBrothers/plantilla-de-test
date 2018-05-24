@@ -41,10 +41,10 @@
      <li><a class="waves-effect waves-yellow" href="index.html">Menu</a></li>
      <li><div class="divider"></div></li>
      <li><a class="waves-effect waves-yellow" href="nueva_categoria.jsp">Nueva categoria</a></li>
-     <li><a class="waves-effect waves-yellow" href="listar_categoria.jsp">Listar categoria</a></li>
+     <li><a class="waves-effect waves-yellow" href="listarcategorias.do">Listar categoria</a></li>
      <li><div class="divider"></div></li>
      <li><a class="waves-effect waves-yellow" href="nuevo_producto.jsp">Nuevo producto</a></li>
-     <li><a class="waves-effect waves-yellow" href="listar_producto.jsp">Listar producto</a></li>
+     <li><a class="waves-effect waves-yellow" href="listarcategoria.do">Listar producto</a></li>
     <li><div class="divider"></div></li>
     
   </ul>
