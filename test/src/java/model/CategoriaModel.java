@@ -79,5 +79,16 @@ public class CategoriaModel {
        listaCategoria.add(new CategoriaModel(idMayor,categoria.getNombre(),categoria.getDetalle()));
        
    }
+   
+   public void editarCategoria(CategoriaModel categoria,int id){
+       
+       for (CategoriaModel lista : listaCategoria) {
+           if(lista.getId()== id){
+               lista.setNombre(categoria.getNombre());
+               lista.setDetalle(categoria.getDetalle());
+           }
+       }
+       
+   }
     
 }

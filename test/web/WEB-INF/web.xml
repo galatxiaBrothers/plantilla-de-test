@@ -8,6 +8,10 @@
         <servlet-name>ListarCategoriasController</servlet-name>
         <servlet-class>contoller.ListarCategoriasController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditarCategoriaController</servlet-name>
+        <servlet-class>contoller.EditarCategoriaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategoriasController</servlet-name>
         <url-pattern>/nuevacategoria.do</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ListarCategoriasController</servlet-name>
         <url-pattern>/listarcategorias.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarCategoriaController</servlet-name>
+        <url-pattern>/editarcategoria.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
