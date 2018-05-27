@@ -32,6 +32,12 @@ public class AgregarCategoriaController extends HttpServlet {
             throws ServletException, IOException {
        
        
+         request.setAttribute("listaCategoria", CategoriaModel.listaCategoria);
+        
+        request.getRequestDispatcher("nuevo_producto.jsp").forward(request, response);
+
+        
+        
         
     }
 
