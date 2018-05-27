@@ -16,6 +16,14 @@
         <servlet-name>EliminarCategoriaController</servlet-name>
         <servlet-class>contoller.EliminarCategoriaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AgregarCategoriaController</servlet-name>
+        <servlet-class>contoller.AgregarCategoriaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NuevoProductoController</servlet-name>
+        <servlet-class>contoller.NuevoProductoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategoriasController</servlet-name>
         <url-pattern>/nuevacategoria.do</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>EliminarCategoriaController</servlet-name>
         <url-pattern>/eliminarcategoria.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgregarCategoriaController</servlet-name>
+        <url-pattern>/agregarcategoria.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevoProductoController</servlet-name>
+        <url-pattern>/nuevoproducto.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

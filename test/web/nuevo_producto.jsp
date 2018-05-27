@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.CategoriaModel;" %>%>
+<%@page import="java.util.ArrayList;" %>%>
+
+<% ArrayList<CategoriaModel> lista = (ArrayList<CategoriaModel>) request.getAttribute("listaCategoria"); %>
  <!DOCTYPE html>
   <html>
     <head>
@@ -38,7 +42,7 @@
      <li><a class="waves-effect waves-yellow" href="nueva_categoria.jsp">Nueva categoria</a></li>
      <li><a class="waves-effect waves-yellow" href="listarcategorias.do">Listar categoria</a></li>
      <li><div class="divider"></div></li>
-     <li><a class="waves-effect waves-yellow" href="nuevo_producto.jsp">Nuevo producto</a></li>
+     <li><a class="waves-effect waves-yellow" href="agregarcategoria.do">Nuevo producto</a></li>
      <li><a class="waves-effect waves-yellow" href="listar_producto.jsp">Listar producto</a></li>
     <li><div class="divider"></div></li>
     
@@ -59,47 +63,44 @@
 
 
 
-                    <form class="col s12">
+                    <form class="col s12" action="nuevoproducto.do" method="POST">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="txtnombre" name="txtnombre" type="text" class="validate">
+                                <input id="txtnombre" name="ptxtnombre" type="text" class="validate">
                                 <label for="txtnombre">Nombre Producto</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="txtdetalle" name="txtdetalle" type="text" class="validate">
+                                <input id="txtdetalle" name="ptxtdetalle" type="text" class="validate">
                                 <label for="txtdetalle">Detalle Producto</label>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="txtcantidad" name="txtcantidad" type="text" class="validate">
+                                <input id="txtcantidad" name="ptxtcantidad" type="text" class="validate">
                                 <label for="txtcantidad">Cantidad Producto</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="txtprecio" name="txtprecio" type="text" class="validate">
+                                <input id="txtprecio" name="ptxtprecio" type="text" class="validate">
                                 <label for="txtprecio">Precio Producto</label>
                             </div>
                         </div>
 
                         <div class="row">
 
-                            <div class="input-field col s6">
-                                <select>
-                                    <option value="" disabled selected>Selecciona una opciÃ³n</option>
-                                    <option value="1">OpciÃ³n 1</option>
-                                    <option value="2">OpciÃ³n 2</option>
-                                    <option value="3">OpciÃ³n 3</option>
+                            <div class="input-field col s6" >
+                                <select id="ptxtcategoria" name="ptxtcategoria" class="validate">
+                                    <option value="" disabled selected>Selecciona una opcion</option>
+                                    <% for (CategoriaModel lista1 : lista) {%>
+                                    <option value="<% out.print(lista1.getId()); %>"> <% out.print(lista1.getNombre()); %> </option>
+                                    <% }%>
+                                   
                                 </select>
-                                <label>CategorÃ­a</label>
+                                <label>Categoria</label>
                             </div>
-                                <div class="input-field col s4 offset-s2">
-
-                                    <input type="checkbox" id="disponible" name="disponible" checked="checked" />
-                                    <label for="disponible">Visible</label>
-                                </div>
+                                
                             
                         </div>
                         <div class="row">
@@ -121,12 +122,14 @@
         
         
 
+       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script>
           $(document).ready(function(){
-    $('.sidenav sidenav-fixed').sidenav();
+    $('select').formSelect();
+    $('sidenav sidenav-fixed').sidenav();
   });
-      </script>
+</script>
     </body>
   </html>

@@ -106,5 +106,20 @@ public class CategoriaModel {
        
        listaCategoria.remove(catEliminar);
    }
+   
+   public void agregarCategoria(CategoriaModel categoria){
+       
+      
+        int idMayor = 1;
+        if (!listaCategoria.isEmpty()) {
+
+            for (CategoriaModel lista1 : listaCategoria) {
+
+                idMayor = lista1.getId();
+
+            }
+        }
+
+    }
     
 }
