@@ -43,7 +43,7 @@
      <li><a class="waves-effect waves-yellow" href="listarcategorias.do">Listar categoria</a></li>
      <li><div class="divider"></div></li>
      <li><a class="waves-effect waves-yellow" href="agregarcategoria.do">Nuevo producto</a></li>
-     <li><a class="waves-effect waves-yellow" href="listar_producto.jsp">Listar producto</a></li>
+     <li><a class="waves-effect waves-yellow" href="listarproducto.do">Listar producto</a></li>
     <li><div class="divider"></div></li>
     
   </ul>
@@ -67,24 +67,24 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="txtnombre" name="ptxtnombre" type="text" class="validate">
-                                <label for="txtnombre">Nombre Producto</label>
+                                <label for="ptxtnombre">Nombre Producto</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="txtdetalle" name="ptxtdetalle" type="text" class="validate">
-                                <label for="txtdetalle">Detalle Producto</label>
+                                <label for="ptxtdetalle">Detalle Producto</label>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s6">
                                 <input id="txtcantidad" name="ptxtcantidad" type="text" class="validate">
-                                <label for="txtcantidad">Cantidad Producto</label>
+                                <label for="ptxtcantidad">Cantidad Producto</label>
                             </div>
                             <div class="input-field col s6">
                                 <input id="txtprecio" name="ptxtprecio" type="text" class="validate">
-                                <label for="txtprecio">Precio Producto</label>
+                                <label for="ptxtprecio">Precio Producto</label>
                             </div>
                         </div>
 

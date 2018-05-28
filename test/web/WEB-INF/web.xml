@@ -24,6 +24,18 @@
         <servlet-name>NuevoProductoController</servlet-name>
         <servlet-class>contoller.NuevoProductoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarProductoController</servlet-name>
+        <servlet-class>contoller.ListarProductoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarProductoController</servlet-name>
+        <servlet-class>contoller.EditarProductoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarProductoController</servlet-name>
+        <servlet-class>contoller.EliminarProductoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaCategoriasController</servlet-name>
         <url-pattern>/nuevacategoria.do</url-pattern>
@@ -47,6 +59,18 @@
     <servlet-mapping>
         <servlet-name>NuevoProductoController</servlet-name>
         <url-pattern>/nuevoproducto.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarProductoController</servlet-name>
+        <url-pattern>/listarproducto.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarProductoController</servlet-name>
+        <url-pattern>/editarproducto.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarProductoController</servlet-name>
+        <url-pattern>/eliminarproducto.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

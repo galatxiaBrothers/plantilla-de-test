@@ -11,14 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CategoriaModel;
 import model.ProductoModel;
 
 /**
  *
  * @author kriss
  */
-public class NuevoProductoController extends HttpServlet {
+public class EditarProductoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,20 +30,20 @@ public class NuevoProductoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
         
-        String nombre = request.getParameter("ptxtnombre");
-        String detalle = request.getParameter("ptxtdetalle");
-        int cantidad = Integer.parseInt(request.getParameter("ptxtcantidad"));
-        int precio = Integer.parseInt(request.getParameter("ptxtprecio"));
+        int id = Integer.parseInt(request.getParameter("txtIDp"));
+        String nombre = request.getParameter("txtNombrep");
+        String detalle = request.getParameter("txtDetallep");
+        int cantidad = Integer.parseInt(request.getParameter("txtCantidadp"));
+        int precio = Integer.parseInt(request.getParameter("txtPreciop"));
         
-        ProductoModel pro = new ProductoModel();
-        pro.nuevoProducto(new ProductoModel(nombre, detalle, cantidad, precio));
+        ProductoModel producto = new ProductoModel();
         
+        producto.editarProducto(new ProductoModel(nombre, detalle, cantidad, precio), id);
         
         request.setAttribute("listaProducto", ProductoModel.listaProducto);
         request.getRequestDispatcher("listar_producto.jsp").forward(request, response);
-        
-      
         
     }
 

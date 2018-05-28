@@ -11,14 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CategoriaModel;
 import model.ProductoModel;
 
 /**
  *
  * @author kriss
  */
-public class NuevoProductoController extends HttpServlet {
+public class ListarProductoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,16 +31,8 @@ public class NuevoProductoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nombre = request.getParameter("ptxtnombre");
-        String detalle = request.getParameter("ptxtdetalle");
-        int cantidad = Integer.parseInt(request.getParameter("ptxtcantidad"));
-        int precio = Integer.parseInt(request.getParameter("ptxtprecio"));
         
-        ProductoModel pro = new ProductoModel();
-        pro.nuevoProducto(new ProductoModel(nombre, detalle, cantidad, precio));
-        
-        
-        request.setAttribute("listaProducto", ProductoModel.listaProducto);
+          request.setAttribute("listaProducto", ProductoModel.listaProducto);
         request.getRequestDispatcher("listar_producto.jsp").forward(request, response);
         
       
